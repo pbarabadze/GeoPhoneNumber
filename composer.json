@@ -1,0 +1,21 @@
+{
+    "name": "pbarabadze/geo-phone-number",
+    "description": "A Laravel library for parsing, formatting, and validating Georgian phone numbers.",
+    "type": "library",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pbarabadze\\GeoPhoneNumber\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paata Barabadze",
+            "email": "p.barabadze@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3"
+    }}
