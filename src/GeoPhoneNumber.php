@@ -128,8 +128,8 @@ class GeoPhoneNumber
         }
 
         return [
-            'main'   => substr($normalized, 3), // Extract the main part of the number
-            'prefix' => substr($normalized, 0, 3),
+            'main'   => substr($normalized, 6), // Extract the main part of the number
+            'prefix' => substr($normalized, 3, 3),
             'full'   => $normalized, // The full normalized phone number
         ];
     }

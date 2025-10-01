@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.3] - 2025-10-01
+## [1.0.4] - 2025-10-01
+### Fixed
+- Fixed incorrect prefix extraction in parseNumber() - now correctly extracts positions 4-6 (actual prefix) instead of 1-3 (country code)
+- Fixed main number extraction to start from position 7 instead of position 4
+
+## [1.0.3] - 2025-10-01 [YANKED]
+**Note:** This version contains a bug in prefix extraction. Please use v1.0.4 instead.
+
 ### Fixed
 - Fixed missing 'prefix' key in parseNumber() output that caused formatNumber() to fail
-- Added proper prefix extraction using substr($normalized, 0, 3)
+- Added prefix extraction (incorrect positions, fixed in v1.0.4)
 
 ### Changed
 - Refactored formatNumber() to use array-based format mapping for better maintainability
