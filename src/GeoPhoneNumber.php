@@ -98,18 +98,15 @@ class GeoPhoneNumber
             return null;
         }
 
-        switch ($format) {
-            case 'national':
-                $formatted = "{$parsed['prefix']} {$parsed['main']}";
-                break;
-            case 'e164':
-                $formatted = "+995{$parsed['prefix']}{$parsed['main']}";
-                break;
-            default: // 'international'
-                $formatted = "+995 {$parsed['prefix']} {$parsed['main']}";
-        }
+        $formats = [
+            'national' => "{$parsed['prefix']} {$parsed['main']}",
+            'e164' => "+995{$parsed['prefix']}{$parsed['main']}",
+            'international' => "+995 {$parsed['prefix']} {$parsed['main']}",
+            'rfc3966' => "tel:+995-{$parsed['prefix']}-{$parsed['main']}",
+            'compact' => "995{$parsed['prefix']}{$parsed['main']}",
+        ];
 
-        return $formatted;
+        return $formats[$format] ?? $formats['international'];
     }
 
     /**
@@ -131,8 +128,9 @@ class GeoPhoneNumber
         }
 
         return [
-            'main' => substr($normalized, 3), // Extract the main part of the number
-            'full' => $normalized, // The full normalized phone number
+            'main'   => substr($normalized, 3), // Extract the main part of the number
+            'prefix' => substr($normalized, 0, 3),
+            'full'   => $normalized, // The full normalized phone number
         ];
     }
 
